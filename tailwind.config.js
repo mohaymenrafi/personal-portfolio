@@ -21,6 +21,9 @@ module.exports = {
         'sans':['Calibre', ...defaultTheme.fontFamily.sans],
         'mono':['SF Mono', ...defaultTheme.fontFamily.sans]
       },
+      fontSize:{
+        '13':'13px'
+      }
     },
   },
   plugins: [],
