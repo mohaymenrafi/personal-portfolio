@@ -4,8 +4,8 @@ const navMenu: string[] = ["About Me", "Projects", "Blog", "Contact"];
 
 const Header: React.FC = () => {
   return (
-    <div className=" bg-navy py-6 font-mono">
-      <div className="container mx-auto flex ">
+    <div className=" bg-navy p-6 font-mono md:px-12">
+      <div className="flex">
         {/* logo and navmenu */}
         <div className="flex-grow flex items-center justify-between">
           <h2 className="text-green">{"<MhAbdullah />"}</h2>

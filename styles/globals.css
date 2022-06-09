@@ -4,6 +4,6 @@
 
 @layer components {
   .btn-primary {
-    @apply hover:bg-green/10 border border-green rounded px-4 py-2 text-green text-13 transition ease-in-out;
+    @apply hover:bg-green/10 border border-green rounded px-4 py-3 text-green text-13 transition ease-in-out leading-none;
   }
 }
