@@ -4,7 +4,7 @@ const navMenu: string[] = ["About Me", "Projects", "Blog", "Contact"];
 
 const Header: React.FC = () => {
   return (
-    <div className=" bg-navy p-6 font-mono md:px-12">
+    <header className=" bg-navy p-6 font-mono md:px-12">
       <div className="flex">
         {/* logo and navmenu */}
         <div className="flex-grow flex items-center justify-between">
@@ -26,7 +26,7 @@ const Header: React.FC = () => {
           <button className="btn-primary">Resume</button>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 

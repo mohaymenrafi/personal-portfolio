@@ -6,6 +6,13 @@ const MyDocument = () => {
       <Head>
         <link
           rel="preload"
+          href="/fonts/Calibre/Calibre-Light.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
           href="/fonts/Calibre/Calibre-Regular.woff2"
           as="font"
           type="font/woff2"

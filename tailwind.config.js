@@ -22,7 +22,12 @@ module.exports = {
         'mono':['SF Mono', ...defaultTheme.fontFamily.sans]
       },
       fontSize:{
-        '13':'13px'
+        '13':'13px',
+      },
+      spacing:{
+        '100':'100px',
+        '150':'150px',
+        '540':'540px'
       }
     },
   },
