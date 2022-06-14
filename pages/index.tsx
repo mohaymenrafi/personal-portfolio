@@ -3,6 +3,7 @@ import Head from "next/head";
 import About from "../components/About/About";
 import Banner from "../components/Banner/Banner";
 import Header from "../components/Header/Header";
+import Projects from "../components/Projects/Projects";
 
 const Home: NextPage = () => {
   return (
@@ -17,6 +18,7 @@ const Home: NextPage = () => {
         <div className="lg:max-w-5xl mx-auto">
           <Banner />
           <About />
+          <Projects />
         </div>
       </main>
     </div>

@@ -1,18 +1,11 @@
 import Image from "next/image";
 import React from "react";
+import SectionTitle from "../SectionTitle/SectionTitle";
 
 const About = () => {
   return (
     <section className="py-100">
-      <div className="flex items-baseline">
-        <span className="text-green font-mono text-xl">01.&nbsp;</span>
-        <h3
-          className="flex-grow font-sans text-lightest-slate text-[32px]
-         relative flex items-center header-line whitespace-nowrap"
-        >
-          About Me
-        </h3>
-      </div>
+      <SectionTitle title="About Me" number="01" />
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
         <div className=" col-span-2">
           <p className="text-slate text-xl mt-5 max-w-540 font-light mb-4">
@@ -34,7 +27,7 @@ const About = () => {
             build a web app with the Spotify API using Node & React.
           </p>
         </div>
-        <div className="mt-5">
+        <div className="mt-5 relative">
           <Image
             src="/images/profile-pic.jpg"
             width={500}
