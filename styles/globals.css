@@ -9,4 +9,7 @@
   .header-line {
     @apply after:bg-lightest-navy after:block after:w-[100%] md:after:w-[250px] after:h-[1px] after:ml-5 after:mb-2;
   }
+  .project-links {
+    @apply text-lightest-slate hover:text-green hover:cursor-pointer text-xl;
+  }
 }

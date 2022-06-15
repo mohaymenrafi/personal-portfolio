@@ -1,8 +1,8 @@
 import React from "react";
 
 interface IProps {
-  title: String;
-  number: String;
+  title: string;
+  number: string;
 }
 
 const SectionTitle: React.FC<IProps> = ({ title, number }) => {
@@ -11,7 +11,7 @@ const SectionTitle: React.FC<IProps> = ({ title, number }) => {
       <span className="text-green font-mono text-xl">{number}.&nbsp;</span>
       <h3
         className="flex-grow font-sans text-lightest-slate text-[32px]
-         relative flex items-center header-line whitespace-nowrap"
+         relative flex items-center header-line whitespace-nowrap font-medium"
       >
         {title}
       </h3>
