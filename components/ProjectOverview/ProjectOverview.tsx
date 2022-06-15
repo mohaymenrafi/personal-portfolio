@@ -11,10 +11,20 @@ const techs: string[] = [
   "Heroku",
 ];
 
-const ProjectOverview = () => {
+interface IProps {
+  left: boolean;
+}
+
+const ProjectOverview: React.FC<IProps> = ({ left }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-8 items-center">
-      <div className="md:col-start-1 md:col-end-6 md:row-start-1 md:row-end-2 z-10">
+      <div
+        className={`${
+          left
+            ? "md:col-start-1 md:col-end-6"
+            : "md:col-start-4 md:col-end-9 text-right"
+        } md:row-start-1 md:row-end-2 z-10 `}
+      >
         <p className="text-green font-mono text-13">Featured Project</p>
         <h2 className=" text-3xl text-lightest-slate font-medium mt-2">
           Halcyon Theme
@@ -30,7 +40,7 @@ const ProjectOverview = () => {
             </span>
           </Link> */}
         </p>
-        <div className="flex space-x-4 mt-4">
+        <div className={`flex space-x-4 mt-4 ${!left && "justify-end"}`}>
           {techs.map((item: string, index: number) => {
             return (
               <li
@@ -42,19 +52,27 @@ const ProjectOverview = () => {
             );
           })}
         </div>
-        <div className="flex mt-6 items-center space-x-4">
+        <div
+          className={`flex mt-6 items-center space-x-4 ${
+            !left && "justify-end"
+          }`}
+        >
           <FiGithub className="project-links" />
           <FiExternalLink className="project-links" />
         </div>
       </div>
 
-      <div className="md:col-start-4 md:col-end-9 md:row-start-1 md:row-end-2 relative">
+      <div
+        className={`${
+          left ? "md:col-start-4 md:col-end-9" : "md:col-start-1 md:col-end-6"
+        } md:row-start-1 md:row-end-2 relative`}
+      >
         <Image
           src="/project-images/halcyon.jpg"
           alt="project image"
           objectFit="contain"
           width="100%"
-          height="100%"
+          height="80%"
           layout="responsive"
         />
       </div>
