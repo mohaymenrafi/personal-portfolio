@@ -15,4 +15,12 @@
   .input-one {
     @apply p-3 outline-none text-13 font-mono bg-transparent text-lightest-slate border border-slate focus:border-lightest-slate;
   }
+  .sidebar-icons {
+    @apply text-slate text-xl hover:text-green cursor-pointer hover:-translate-y-[2px] transition-all;
+  }
+}
+
+.text-sideways-right {
+  text-orientation: sideways-right;
+  writing-mode: vertical-rl;
 }
