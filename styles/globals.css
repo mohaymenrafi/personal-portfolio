@@ -12,4 +12,7 @@
   .project-links {
     @apply text-lightest-slate hover:text-green hover:cursor-pointer text-xl;
   }
+  .input-one {
+    @apply p-3 outline-none text-13 font-mono bg-transparent text-lightest-slate border border-slate focus:border-lightest-slate;
+  }
 }
