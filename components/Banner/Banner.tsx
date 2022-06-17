@@ -5,7 +5,7 @@ const Banner = () => {
     <section className="pt-16 pb-20">
       <p className="text-green text-base font-mono mb-7">Hi, my name is</p>
       <h2 className="text-lightest-slate text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-3">
-        Mohaymen Abdullah
+        Mohaymen Abdullah.
       </h2>
       <h2 className="text-slate text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-3">
         I build things for the web.
