@@ -19,6 +19,9 @@
     @apply text-slate text-xl hover:text-green cursor-pointer hover:-translate-y-[2px] transition-all;
   }
 }
+html {
+  scroll-behavior: smooth;
+}
 
 .text-sideways-right {
   text-orientation: sideways-right;

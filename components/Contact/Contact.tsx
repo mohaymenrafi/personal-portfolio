@@ -3,7 +3,7 @@ import Form from "../Form/Form";
 
 const Contact = () => {
   return (
-    <section className="pb-100">
+    <section className="pt-7 pb-100" id="contact">
       <h3 className="text-center text-green font-mono text-base">
         03. What&apos;s Next?
       </h3>

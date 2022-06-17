@@ -4,7 +4,7 @@ import SectionTitle from "../SectionTitle/SectionTitle";
 
 const Projects = () => {
   return (
-    <section className="py-100">
+    <section className="pt-100 pb-7" id="projects">
       <SectionTitle title="Projects I've Done" number="02" />
       <div>
         <ProjectOverview left={false} />

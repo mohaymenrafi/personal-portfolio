@@ -4,7 +4,7 @@ import SectionTitle from "../SectionTitle/SectionTitle";
 
 const About = () => {
   return (
-    <section className="py-100">
+    <section className="py-100" id="about">
       <SectionTitle title="About Me" number="01" />
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
         <div className=" col-span-2">
