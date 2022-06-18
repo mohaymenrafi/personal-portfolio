@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { IMenu } from "../Header";
+import MobileContent from "./MobileContent/MobileContent";
 
 interface IProps {
   navMenu: IMenu[];
@@ -10,7 +11,7 @@ const MobileHeader: React.FC<IProps> = ({ navMenu }) => {
   const [open, setOpen] = useState<boolean>(false);
 
   return (
-    <div className={`${open && "overflow-y-hidden"}`}>
+    <>
       <div className="bg-navy p-6 font-mono md:px-12 flex justify-between items-center">
         <h2 className="text-green">
           <Link href="/">{"<MhAbdullah />"}</Link>
@@ -32,32 +33,8 @@ const MobileHeader: React.FC<IProps> = ({ navMenu }) => {
         </button>
       </div>
       {/* mobile menu content  */}
-      <div
-        className={`absolute right-0 top-0 bg-light-navy h-screen w-80 z-10 transition-transform duration-65 translate-x-80 ${
-          open && "translate-x-0"
-        }`}
-      >
-        <div className="flex items-center justify-center h-full p-6">
-          <ul className="font-mono text-center space-y-10">
-            {navMenu.map((menuItem: IMenu, index: number) => (
-              <li
-                key={index}
-                className="text-lightest-slate hover:text-green cursor-pointer text-[18px] list-none"
-                onClick={() => setOpen(!open)}
-              >
-                <Link href={`/${menuItem.url}`}>
-                  <a>
-                    <span className="text-green">0{index + 1}. </span>
-                    <br />
-                    {menuItem.name}
-                  </a>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </div>
+      <MobileContent navMenu={navMenu} open={open} setOpen={setOpen} />
+    </>
   );
 };
 export default MobileHeader;

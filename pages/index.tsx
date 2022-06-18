@@ -11,7 +11,7 @@ import RightSidebar from "../components/RightSidebar/RightSidebar";
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <div className="relative overflow-x-hidden">
       <Head>
         <title>Mh Abdullah</title>
         <meta name="description" content="I am a frontend developer" />
