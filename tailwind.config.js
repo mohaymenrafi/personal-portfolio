@@ -28,6 +28,9 @@ module.exports = {
         '100':'100px',
         '150':'150px',
         '540':'540px'
+      },
+      transitionDuration:{
+        '65':'650ms'
       }
     },
   },

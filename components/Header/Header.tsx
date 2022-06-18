@@ -30,8 +30,12 @@ const navMenu: IMenu[] = [
 const Header: React.FC = () => {
   return (
     <header>
-      <DesktopHeader navMenu={navMenu} />
-      <MobileHeader />
+      <div className="hidden md:block">
+        <DesktopHeader navMenu={navMenu} />
+      </div>
+      <div className="md:hidden">
+        <MobileHeader navMenu={navMenu} />
+      </div>
     </header>
   );
 };

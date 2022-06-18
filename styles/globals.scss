@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn-primary {
+    @apply hover:bg-green/10 border border-green rounded px-4 py-3 text-green text-13 transition ease-in-out leading-none;
+  }
+  .header-line {
+    @apply after:bg-lightest-navy after:block after:w-[100%] md:after:w-[250px] after:h-[1px] after:ml-5 after:mb-2;
+  }
+  .project-links {
+    @apply text-lightest-slate hover:text-green hover:cursor-pointer text-xl;
+  }
+  .input-one {
+    @apply p-3 outline-none text-13 font-mono bg-transparent text-lightest-slate border border-slate focus:border-lightest-slate;
+  }
+  .sidebar-icons {
+    @apply text-slate text-xl hover:text-green cursor-pointer hover:-translate-y-[2px] transition-all;
+  }
+}
+
+// ## Variables ##
+$button-width: 30px;
+$button-height: calc($button-width * 0.8);
+$height: calc($button-width * 0.1);
+$border-radius: calc($button-width * 0.04);
+$translate-value: calc($button-width * 0.17);
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+.text-sideways-right {
+  text-orientation: sideways-right;
+  writing-mode: vertical-rl;
+}
+
+.fancy-menu {
+  position: relative;
+  width: $button-width;
+  height: $button-height;
+  border: 0;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.rectangle {
+  position: absolute;
+  height: $height;
+  background: #64ffda;
+  border-radius: $border-radius;
+  transition: transform 0.65s;
+
+  &--small {
+    width: calc($button-width / 2);
+  }
+  &--top {
+    top: 0;
+    left: 0;
+    transform-origin: top left;
+  }
+  &--top.open {
+    transform: translateX($translate-value) rotate(45deg);
+  }
+  &--middle {
+    top: 50%;
+    left: 0;
+    width: $button-width;
+    transform: translateY(-50%);
+  }
+  &--middle.open {
+    transform: translateY(-50%) rotate(-45deg);
+  }
+  &--bottom {
+    bottom: 0;
+    right: 0;
+    transform-origin: bottom right;
+  }
+  &--bottom.open {
+    transform: translateX(calc($translate-value * -1)) rotate(45deg);
+  }
+}
