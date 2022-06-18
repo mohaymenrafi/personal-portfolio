@@ -1,7 +1,7 @@
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IMenu } from "../Header";
-import MobileContent from "./MobileContent/MobileContent";
+import MobileHeaderContent from "./MobileHeaderContent/MobileHeaderContent";
 
 interface IProps {
   navMenu: IMenu[];
@@ -10,13 +10,22 @@ interface IProps {
 const MobileHeader: React.FC<IProps> = ({ navMenu }) => {
   const [open, setOpen] = useState<boolean>(false);
 
+  useEffect(() => {
+    // console.log(first);
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [open]);
+
   return (
     <>
       <div className="bg-navy p-6 font-mono md:px-12 flex justify-between items-center">
-        <h2 className="text-green">
+        <h2 className="text-green cursor-pointer">
           <Link href="/">{"<MhAbdullah />"}</Link>
         </h2>
-        <button className="fancy-menu z-20" onClick={() => setOpen(!open)}>
+        <button className="fancy-menu z-50" onClick={() => setOpen(!open)}>
           <span
             className={`rectangle rectangle--top rectangle--small ${
               open && "open"
@@ -33,7 +42,7 @@ const MobileHeader: React.FC<IProps> = ({ navMenu }) => {
         </button>
       </div>
       {/* mobile menu content  */}
-      <MobileContent navMenu={navMenu} open={open} setOpen={setOpen} />
+      <MobileHeaderContent navMenu={navMenu} open={open} setOpen={setOpen} />
     </>
   );
 };

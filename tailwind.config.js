@@ -30,7 +30,8 @@ module.exports = {
         '540':'540px'
       },
       transitionDuration:{
-        '65':'650ms'
+        '65':'650ms',
+        '50':'500ms'
       }
     },
   },

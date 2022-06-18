@@ -36,6 +36,19 @@ html {
   writing-mode: vertical-rl;
 }
 
+.glass {
+  background: rgba(35, 53, 84, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.5px);
+  -webkit-backdrop-filter: blur(5px);
+  opacity: 0;
+  transition: opacity 0.5s;
+  &.open {
+    opacity: 1;
+  }
+}
+
 .fancy-menu {
   position: relative;
   width: $button-width;
@@ -51,7 +64,7 @@ html {
   height: $height;
   background: #64ffda;
   border-radius: $border-radius;
-  transition: transform 0.65s;
+  transition: transform 0.5s;
 
   &--small {
     width: calc($button-width / 2);
