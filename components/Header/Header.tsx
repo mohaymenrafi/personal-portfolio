@@ -1,4 +1,3 @@
-import Link from "next/link";
 import React from "react";
 import DesktopHeader from "./DesktopHeader/DesktopHeader";
 import MobileHeader from "./MobileHeader/MobileHeader";

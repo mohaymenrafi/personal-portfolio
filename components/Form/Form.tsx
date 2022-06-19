@@ -12,7 +12,6 @@ interface Inputs {
 const Form = () => {
   const {
     handleSubmit,
-    watch,
     register,
     reset,
     formState: { errors },
@@ -31,10 +30,16 @@ const Form = () => {
       .then((res) => {
         if (res.status === 200) {
           setSuccess("Your form is sent successfully");
+          setTimeout(() => {
+            setSuccess("");
+          }, 2500);
         }
       })
       .catch((err) => {
         setError("Error occured! Please submit your form again.");
+        setTimeout(() => {
+          setError("");
+        }, 2500);
       });
     reset();
   };
@@ -55,7 +60,9 @@ const Form = () => {
           className="input-one"
         />
         {errors.email?.type === "required" && (
-          <p className="text-red-500 mt-2">Email is required</p>
+          <p className="text-red-500 mt-2 text-13 font-mono">
+            Email is required
+          </p>
         )}
         <input
           placeholder="Subject"
@@ -70,12 +77,20 @@ const Form = () => {
           className="input-one"
         />
         {errors.message?.type === "required" && (
-          <p className="text-red-500 mt-2">Message is required</p>
+          <p className="text-red-500 mt-2 font-mono text-13">
+            Message is required
+          </p>
         )}
         <input
           type="submit"
           className="text-green border border-slate hover:border-green hover:bg-green py-3 px-16 mt-6 text-[14px] font-mono cursor-pointer hover:text-navy self-start transition-all"
         />
+        {success && (
+          <p className="text-green text-13 font-mono mt-2">{success}</p>
+        )}
+        {error && (
+          <p className="text-red-500 text-13 font-mono mt-2">{error}</p>
+        )}
       </form>
     </div>
   );
