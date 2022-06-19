@@ -20,7 +20,7 @@ const MobileHeaderContent: React.FC<IProps> = ({ navMenu, open, setOpen }) => {
           open && "translate-x-0"
         }`}
       >
-        <div className="flex items-center justify-center h-full p-6">
+        <div className="flex flex-col space-y-10 items-center justify-center h-full p-6">
           <ul className="font-mono text-center space-y-10">
             {navMenu.map((menuItem: IMenu, index: number) => (
               <li
@@ -38,6 +38,11 @@ const MobileHeaderContent: React.FC<IProps> = ({ navMenu, open, setOpen }) => {
               </li>
             ))}
           </ul>
+          <button className="btn-primary">
+            <a href="/Resume_Abdullah_Al_Mohaymen_Rafi.pdf" download>
+              Resume
+            </a>
+          </button>
         </div>
       </div>
     </div>

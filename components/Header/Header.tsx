@@ -29,8 +29,8 @@ const navMenu: IMenu[] = [
 
 const Header: React.FC = () => {
   return (
-    <header>
-      <div className="hidden md:block">
+    <header className="sticky top-0 z-30">
+      <div className="hidden md:block sticky top-0">
         <DesktopHeader navMenu={navMenu} />
       </div>
       <div className="md:hidden">

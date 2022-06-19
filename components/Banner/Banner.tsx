@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Banner = () => {
@@ -13,11 +14,14 @@ const Banner = () => {
       <p className="text-slate text-xl mt-5 max-w-540 font-light">
         I am a web developer specializing in frontend development. I focus on
         developing quality products that will push your business forward. In
-        free time I read books, blogs and write on{" "}
-        <span className="text-green italic">dev.to</span>
+        free time I read books, blogs.
+        {/* and write on{" "}
+        <span className="text-green italic">dev.to</span> */}
       </p>
       <button className="btn-primary px-7 py-5 text-sm mt-12 font-mono">
-        Chekcout my projects
+        <Link href="/#projects">
+          <a>Chekcout my projects</a>
+        </Link>
       </button>
     </section>
   );
