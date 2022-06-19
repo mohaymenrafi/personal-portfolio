@@ -24,11 +24,12 @@ const Home: NextPage = () => {
           <About />
           <Projects />
           <Contact />
-          <Footer />
+
           <LeftSidebar />
           <RightSidebar />
         </div>
       </main>
+      <Footer />
     </div>
   );
 };
