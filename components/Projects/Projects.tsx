@@ -1,6 +1,9 @@
 import React from "react";
 import ProjectOverview from "../ProjectOverview/ProjectOverview";
 import SectionTitle from "../SectionTitle/SectionTitle";
+import featuredProjects, {
+  IFeaturedProjects,
+} from "../../data/project-data/featured-projects";
 
 const Projects = () => {
   return (
@@ -8,9 +11,9 @@ const Projects = () => {
       <SectionTitle title="Projects I've Done" number="02" />
 
       <div className="mt-16 md:mt-0 space-y-16 md:space-y-8">
-        <ProjectOverview left={false} />
-        <ProjectOverview left={true} />
-        <ProjectOverview left={false} />
+        {featuredProjects.map((item: IFeaturedProjects, idx: number) => (
+          <ProjectOverview featuredProjects={item} key={idx} />
+        ))}
       </div>
     </section>
   );
