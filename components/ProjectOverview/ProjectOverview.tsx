@@ -18,8 +18,23 @@ interface IProps {
 const ProjectOverview: React.FC<IProps> = ({ featuredProjects }) => {
   const { left, name, overview, techs, githubUrl, liveUrl, image } =
     featuredProjects;
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-8 items-center bg-[url('/project-images/halcyon.jpg')] md:bg-[url('/project-images/transparent.png')] bg-cover bg-no-repeat bg-center">
+    <div className={`grid grid-cols-1 md:grid-cols-8 items-center`}>
+      <div
+        className={`${
+          left ? "md:col-start-4 md:col-end-9" : "md:col-start-1 md:col-end-6"
+        } md:row-start-1 md:row-end-2 `}
+      >
+        <Image
+          src={image}
+          alt={name}
+          objectFit="contain"
+          width="100%"
+          height="60%"
+          layout="responsive"
+        />
+      </div>
       <div
         className={`${
           left
@@ -66,21 +81,6 @@ const ProjectOverview: React.FC<IProps> = ({ featuredProjects }) => {
             <FiExternalLink className="project-links" />
           </a>
         </div>
-      </div>
-
-      <div
-        className={`${
-          left ? "md:col-start-4 md:col-end-9" : "md:col-start-1 md:col-end-6"
-        } md:row-start-1 md:row-end-2 hidden md:block`}
-      >
-        <Image
-          src={image}
-          alt={name}
-          objectFit="contain"
-          width="100%"
-          height="60%"
-          layout="responsive"
-        />
       </div>
     </div>
   );
