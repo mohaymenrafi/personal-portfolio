@@ -1,22 +1,40 @@
 import Image from "next/image";
 import React from "react";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
+import { IFeaturedProjects } from "../../data/project-data/featured-projects";
 
-const techs: string[] = [
-  "React",
-  "Styled Components",
-  "Express",
-  "Spotify API",
-  "Heroku",
-];
+// const techs: string[] = [
+//   "React",
+//   "Styled Components",
+//   "Express",
+//   "Spotify API",
+//   "Heroku",
+// ];
 
 interface IProps {
-  left: boolean;
+  featuredProjects: IFeaturedProjects;
 }
 
-const ProjectOverview: React.FC<IProps> = ({ left }) => {
+const ProjectOverview: React.FC<IProps> = ({ featuredProjects }) => {
+  const { left, name, overview, techs, githubUrl, liveUrl, image } =
+    featuredProjects;
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-8 items-center bg-[url('/project-images/halcyon.jpg')] md:bg-[url('/project-images/transparent.png')] bg-cover bg-no-repeat bg-center">
+    <div className={`grid grid-cols-1 md:grid-cols-8 items-center`}>
+      <div
+        className={`${
+          left ? "md:col-start-4 md:col-end-9" : "md:col-start-1 md:col-end-6"
+        } md:row-start-1 md:row-end-2 `}
+      >
+        <Image
+          src={image}
+          alt={name}
+          objectFit="contain"
+          width="100%"
+          height="60%"
+          layout="responsive"
+        />
+      </div>
       <div
         className={`${
           left
@@ -26,12 +44,10 @@ const ProjectOverview: React.FC<IProps> = ({ left }) => {
       >
         <p className="text-green font-mono text-13">Featured Project</p>
         <h2 className=" text-3xl text-lightest-slate font-medium mt-2">
-          Halcyon Theme
+          {name}
         </h2>
         <p className="md:bg-light-navy text-lg text-light-slate md:p-6 mt-5">
-          A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and
-          more. Available on Visual Studio Marketplace, Package Control, Atom
-          Package Manager, and npm.
+          {overview}
           <br />
           {/* <Link href={"/details"}>
             <span className="text-green text-13 font-mono cursor-pointer">
@@ -58,24 +74,13 @@ const ProjectOverview: React.FC<IProps> = ({ left }) => {
             !left && "md:justify-end"
           }`}
         >
-          <FiGithub className="project-links" />
-          <FiExternalLink className="project-links" />
+          <a href={githubUrl} target="_blank" rel="noreferrer">
+            <FiGithub className="project-links" />
+          </a>
+          <a href={liveUrl} target="_blank" rel="noreferrer">
+            <FiExternalLink className="project-links" />
+          </a>
         </div>
-      </div>
-
-      <div
-        className={`${
-          left ? "md:col-start-4 md:col-end-9" : "md:col-start-1 md:col-end-6"
-        } md:row-start-1 md:row-end-2 relative hidden md:block`}
-      >
-        <Image
-          src="/project-images/halcyon.jpg"
-          alt="project image"
-          objectFit="contain"
-          width="100%"
-          height="80%"
-          layout="responsive"
-        />
       </div>
     </div>
   );

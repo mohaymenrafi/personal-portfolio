@@ -18,11 +18,11 @@ const Banner = () => {
         {/* and write on{" "}
         <span className="text-green italic">dev.to</span> */}
       </p>
-      <button className="btn-primary px-7 py-5 text-sm mt-12 font-mono">
-        <Link href="/#projects">
+      <Link href="/#projects">
+        <button className="btn-primary px-7 py-5 text-sm mt-12 font-mono">
           <a>Chekcout my projects</a>
-        </Link>
-      </button>
+        </button>
+      </Link>
     </section>
   );
 };

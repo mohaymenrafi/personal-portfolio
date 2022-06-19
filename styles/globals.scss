@@ -18,6 +18,9 @@
   .sidebar-icons {
     @apply text-slate text-xl hover:text-green cursor-pointer hover:-translate-y-[2px] transition-all;
   }
+  // .img-overlay {
+  //   @apply after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-green/30;
+  // }
 }
 
 // ## Variables ##
