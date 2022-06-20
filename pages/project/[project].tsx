@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 import { BiRightArrow } from "react-icons/bi";
@@ -51,11 +50,21 @@ const ProjectDetails = () => {
             </div>
             <h2 className="text-xl text-lightest-slate mt-6">Sources</h2>
             <div className="space-x-4 text-green font-mono text-13 cursor-pointer">
-              <Link href={projectData?.githubUrl}>Github Repo</Link>
+              <a href={projectData?.githubUrl} target="_blank" rel="noreferrer">
+                Github Repo
+              </a>
               {projectData?.gitBackend && (
-                <Link href={projectData?.gitBackend}>Github Repo (Server)</Link>
+                <a
+                  href={projectData?.gitBackend}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Github Repo (Server)
+                </a>
               )}
-              <Link href={projectData?.liveUrl}>Live Preview</Link>
+              <a href={projectData?.liveUrl} target="_blank" rel="noreferrer">
+                Live Preview
+              </a>
             </div>
           </div>
         </div>
