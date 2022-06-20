@@ -1,22 +1,15 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
 import { IFeaturedProjects } from "../../data/project-data/featured-projects";
-
-// const techs: string[] = [
-//   "React",
-//   "Styled Components",
-//   "Express",
-//   "Spotify API",
-//   "Heroku",
-// ];
 
 interface IProps {
   featuredProjects: IFeaturedProjects;
 }
 
 const ProjectOverview: React.FC<IProps> = ({ featuredProjects }) => {
-  const { left, name, overview, techs, githubUrl, liveUrl, image } =
+  const { left, name, overview, techs, githubUrl, liveUrl, image, url } =
     featuredProjects;
 
   return (
@@ -49,14 +42,14 @@ const ProjectOverview: React.FC<IProps> = ({ featuredProjects }) => {
         <p className="md:bg-light-navy text-lg text-light-slate md:p-6 mt-5">
           {overview}
           <br />
-          {/* <Link href={"/details"}>
+          <Link href={`/project/${url}`}>
             <span className="text-green text-13 font-mono cursor-pointer">
               View Details
             </span>
-          </Link> */}
+          </Link>
         </p>
         <div className={`flex flex-wrap mt-4 ${!left && "md:justify-end"}`}>
-          {techs.map((item: string, index: number) => {
+          {techs.slice(0, 5).map((item: string, index: number) => {
             return (
               <li
                 key={index}
