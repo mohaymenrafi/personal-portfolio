@@ -24,6 +24,7 @@ const ProjectDetails = () => {
           alt={projectData?.name}
           className="w-full"
         />
+
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-y-12 md:gap-x-12">
           <div className="bg-light-navy p-8 rounded shadow-md space-y-4">
             {projectData?.features.map((item: string, idx: number) => (

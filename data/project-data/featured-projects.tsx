@@ -126,6 +126,7 @@ const featuredProjects: IFeaturedProjects[] = [
       "Showing details of coffee stores using dynamic routing and all the information are static site generated",
       "Airtable is for storing coffee stores data",
       "SWR for live updates on upvoting a specific store",
+      "All the coffee store images are loaded randomly from Unsplash api",
     ],
     url: "coffee-store",
   },
