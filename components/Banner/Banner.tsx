@@ -11,7 +11,7 @@ const Banner = () => {
       <h2 className="text-slate text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-3">
         I build things for the web.
       </h2>
-      <p className="text-slate text-xl mt-5 max-w-540 font-light">
+      <p className="text-slate text-xl mt-5 max-w-[540px] font-light">
         I am a web developer specializing in frontend development. I focus on
         developing quality products that will push your business forward. In
         free time I read books, blogs.
