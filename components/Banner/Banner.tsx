@@ -11,18 +11,18 @@ const Banner = () => {
       <h2 className="text-slate text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-3">
         I build things for the web.
       </h2>
-      <p className="text-slate text-xl mt-5 max-w-540 font-light">
+      <p className="text-slate text-xl mt-5 max-w-[540px] font-light">
         I am a web developer specializing in frontend development. I focus on
         developing quality products that will push your business forward. In
         free time I read books, blogs.
         {/* and write on{" "}
         <span className="text-green italic">dev.to</span> */}
       </p>
-      <button className="btn-primary px-7 py-5 text-sm mt-12 font-mono">
-        <Link href="/#projects">
+      <Link href="/#projects">
+        <button className="btn-primary px-7 py-5 text-sm mt-12 font-mono">
           <a>Chekcout my projects</a>
-        </Link>
-      </button>
+        </button>
+      </Link>
     </section>
   );
 };
