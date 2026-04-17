@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { experiences } from "@/data/experience";
 
 export default function Experience() {
+  const [active, setActive] = useState(experiences[0].company);
+  const current = experiences.find((e) => e.company === active)!;
+
   return (
     <section id="experience" className="py-24 max-w-4xl mx-auto">
       {/* Section heading */}
@@ -16,49 +18,63 @@ export default function Experience() {
         <div className="h-px bg-lightest-navy flex-1" />
       </div>
 
-      <Tabs defaultValue={experiences[0].company} orientation="vertical" className="flex flex-col md:flex-row gap-4 md:gap-8">
-        {/* Tab list */}
-        <TabsList className="flex md:flex-col h-auto bg-transparent border-b md:border-b-0 md:border-l border-lightest-navy p-0 gap-0 overflow-x-auto md:overflow-x-visible shrink-0">
+      <div className="flex flex-col md:flex-row gap-6 md:gap-8">
+
+        {/* Mobile: select dropdown */}
+        <div className="md:hidden">
+          <select
+            value={active}
+            onChange={(e) => setActive(e.target.value)}
+            className="w-full bg-light-navy border border-lightest-navy text-lightest-slate font-mono text-sm rounded px-3 py-2.5 outline-none focus:border-teal"
+          >
+            {experiences.map((exp) => (
+              <option key={exp.company} value={exp.company}>
+                {exp.company}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* Desktop: vertical tab list */}
+        <div className="hidden md:flex flex-col border-l border-lightest-navy shrink-0">
           {experiences.map((exp) => (
-            <TabsTrigger
+            <button
               key={exp.company}
-              value={exp.company}
-              className="font-mono text-sm text-slate data-[state=active]:text-teal data-[state=active]:bg-lightest-navy/50 rounded-none border-b-2 md:border-b-0 md:border-l-2 border-transparent data-[state=active]:border-teal px-5 py-3 justify-start whitespace-nowrap hover:text-teal hover:bg-lightest-navy/30 transition-all"
+              onClick={() => setActive(exp.company)}
+              className={`font-mono text-sm px-5 py-3 text-left whitespace-nowrap border-l-2 transition-all -ml-px
+                ${active === exp.company
+                  ? "text-teal border-teal bg-lightest-navy/50"
+                  : "text-slate border-transparent hover:text-teal hover:bg-lightest-navy/30"
+                }`}
             >
               {exp.company}
-            </TabsTrigger>
+            </button>
           ))}
-        </TabsList>
+        </div>
 
-        {/* Tab content */}
-        {experiences.map((exp) => (
-          <TabsContent key={exp.company} value={exp.company} className="mt-0 flex-1">
-            <div className="space-y-4">
-              <div>
-                <h3 className="text-lightest-slate text-xl font-semibold">
-                  {exp.title}{" "}
-                  <span className="text-teal">@ {exp.company}</span>
-                </h3>
-                <p className="font-mono text-xs text-slate mt-1">
-                  {exp.period} · {exp.location}
-                </p>
-              </div>
+        {/* Content */}
+        <div className="flex-1 space-y-4">
+          <div>
+            <h3 className="text-lightest-slate text-xl font-semibold">
+              {current.title}{" "}
+              <span className="text-teal">@ {current.company}</span>
+            </h3>
+            <p className="font-mono text-xs text-slate mt-1">
+              {current.period} · {current.location}
+            </p>
+          </div>
 
-              <ul className="space-y-3">
-                {exp.bullets.map((bullet, i) => (
-                  <li
-                    key={i}
-                    className="text-slate text-base leading-relaxed flex gap-3"
-                  >
-                    <span className="text-teal mt-1 shrink-0">▹</span>
-                    <span>{bullet}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </TabsContent>
-        ))}
-      </Tabs>
+          <ul className="space-y-3">
+            {current.bullets.map((bullet, i) => (
+              <li key={i} className="text-slate text-base leading-relaxed flex gap-3">
+                <span className="text-teal mt-1 shrink-0">▹</span>
+                <span>{bullet}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+      </div>
     </section>
   );
 }
