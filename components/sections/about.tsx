@@ -84,9 +84,9 @@ export default function About() {
 
         {/* Profile image */}
         <div className="relative group mx-auto w-64 md:w-full max-w-[280px]">
-          <div className="relative z-10 rounded overflow-hidden grayscale hover:grayscale-0 transition-all duration-300">
+          <div className="relative z-10 rounded overflow-hidden transition-all duration-300">
             <Image
-              src="/images/profile.jpg"
+              src="/images/rafi_portfolio.jpg"
               alt="Abdullah Al Mohaymen Rafi"
               width={280}
               height={280}

@@ -34,9 +34,9 @@ export default function Projects() {
                       alt={project.name}
                       width={700}
                       height={440}
-                      className="w-full h-auto object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                      className="w-full h-auto object-cover transition-all duration-500"
                     />
-                    <div className="absolute inset-0 bg-navy/60 group-hover:bg-transparent transition-all duration-500" />
+                    <div className="absolute inset-0 bg-navy/30 group-hover:bg-transparent transition-all duration-500" />
                   </div>
                 </Link>
               </div>
