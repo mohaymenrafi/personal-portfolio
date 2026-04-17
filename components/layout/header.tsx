@@ -32,7 +32,10 @@ export default function Header() {
       }`}
     >
       {/* Logo */}
-      <Link href="/" className="text-teal font-mono text-lg font-semibold hover:opacity-80 transition-opacity">
+      <Link
+        href="/"
+        className="text-teal font-mono text-lg font-semibold hover:opacity-80 transition-opacity"
+      >
         rafi.
       </Link>
 
@@ -49,12 +52,12 @@ export default function Header() {
           </a>
         ))}
         <a
-          href="/Resume_Abdullah_Al_Mohaymen_Rafi.pdf"
+          href="https://tinyurl.com/46e8rzvb"
           target="_blank"
           rel="noopener noreferrer"
           className={cn(
             buttonVariants({ variant: "outline", size: "sm" }),
-            "font-mono text-xs border-teal text-teal bg-transparent hover:bg-teal/10"
+            "font-mono text-xs border-teal text-teal bg-transparent hover:bg-teal/10",
           )}
         >
           Resume
