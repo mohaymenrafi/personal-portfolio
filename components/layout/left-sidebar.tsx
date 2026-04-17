@@ -13,7 +13,7 @@ const socials = [
   },
   {
     icon: FiTwitter,
-    href: "https://twitter.com/mohaymenrafi",
+    href: "https://x.com/mohaymen_rafi",
     label: "Twitter",
   },
 ];
