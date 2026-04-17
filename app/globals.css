@@ -38,7 +38,7 @@
   --color-light-slate: var(--portfolio-light-slate);
   --color-lightest-slate: var(--portfolio-lightest-slate);
   --color-white-ish: var(--portfolio-white-ish);
-  --color-teal: var(--portfolio-teal);
+  /* teal is defined directly in :root/.dark — not here — so it cascades correctly */
 }
 
 /* ── Light theme (default / :root) ───────────────────── */
@@ -50,7 +50,7 @@
   --portfolio-light-slate: #2d3748;
   --portfolio-lightest-slate: #1a202c;
   --portfolio-white-ish: #0d1117;
-  --portfolio-teal: #0a7a5e;   /* darker teal — readable on light bg */
+  --color-teal: #0a7a5e;
 
   --background: #f5f7ff;
   --foreground: #1a202c;
@@ -82,7 +82,7 @@
   --portfolio-light-slate: #a8b2d1;
   --portfolio-lightest-slate: #ccd6f6;
   --portfolio-white-ish: #e6f1ff;
-  --portfolio-teal: #64ffda;   /* original bright teal — great on dark bg */
+  --color-teal: #64ffda;
 
   --background: #0a192f;
   --foreground: #ccd6f6;
