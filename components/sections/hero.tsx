@@ -5,7 +5,7 @@ import { FiArrowRight } from "react-icons/fi";
 export default function Hero() {
   return (
     <section className="min-h-screen flex flex-col justify-center pt-24 pb-16 max-w-4xl mx-auto">
-      <p className="font-[family-name:var(--font-sf-mono)] text-teal text-sm md:text-base mb-5 tracking-wide">
+      <p className="font-mono text-teal text-sm md:text-base mb-5 tracking-wide">
         Hi, my name is
       </p>
 
@@ -38,7 +38,7 @@ export default function Hero() {
           href="#projects"
           className={cn(
             buttonVariants({ variant: "outline" }),
-            "font-[family-name:var(--font-sf-mono)] text-sm border-teal text-teal bg-transparent hover:bg-teal/10 px-7 py-6"
+            "font-mono text-sm border-teal text-teal bg-transparent hover:bg-teal/10 px-7 py-6"
           )}
         >
           Check out my work <FiArrowRight className="ml-2 inline" />
@@ -47,7 +47,7 @@ export default function Hero() {
           href="#contact"
           className={cn(
             buttonVariants({ variant: "ghost" }),
-            "font-[family-name:var(--font-sf-mono)] text-sm text-slate hover:text-teal hover:bg-transparent px-7 py-6"
+            "font-mono text-sm text-slate hover:text-teal hover:bg-transparent px-7 py-6"
           )}
         >
           Get in touch

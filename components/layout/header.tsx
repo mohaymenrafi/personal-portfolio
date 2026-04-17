@@ -32,7 +32,7 @@ export default function Header() {
       }`}
     >
       {/* Logo */}
-      <Link href="/" className="text-teal font-[family-name:var(--font-sf-mono)] text-lg font-semibold hover:opacity-80 transition-opacity">
+      <Link href="/" className="text-teal font-mono text-lg font-semibold hover:opacity-80 transition-opacity">
         rafi.
       </Link>
 
@@ -42,7 +42,7 @@ export default function Header() {
           <a
             key={label}
             href={href}
-            className="font-[family-name:var(--font-sf-mono)] text-sm text-slate hover:text-teal transition-colors"
+            className="font-mono text-sm text-slate hover:text-teal transition-colors"
           >
             <span className="text-teal mr-1">0{i + 1}.</span>
             {label}
@@ -54,7 +54,7 @@ export default function Header() {
           rel="noopener noreferrer"
           className={cn(
             buttonVariants({ variant: "outline", size: "sm" }),
-            "font-[family-name:var(--font-sf-mono)] text-xs border-teal text-teal bg-transparent hover:bg-teal/10"
+            "font-mono text-xs border-teal text-teal bg-transparent hover:bg-teal/10"
           )}
         >
           Resume

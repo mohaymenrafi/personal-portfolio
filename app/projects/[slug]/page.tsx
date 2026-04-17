@@ -36,7 +36,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         Back to projects
       </Link>
 
-      <p className="font-[family-name:var(--font-sf-mono)] text-xs text-teal mb-2">
+      <p className="font-mono text-xs text-teal mb-2">
         Featured Project
       </p>
       <h1 className="text-3xl md:text-5xl font-semibold text-lightest-slate mb-4">
@@ -60,7 +60,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             href={project.gitBackend}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-[family-name:var(--font-sf-mono)] text-xs text-slate hover:text-teal transition-colors"
+            className="font-mono text-xs text-slate hover:text-teal transition-colors"
           >
             Backend repo
           </a>
@@ -112,7 +112,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               <Badge
                 key={tech}
                 variant="outline"
-                className="font-[family-name:var(--font-sf-mono)] text-xs border-lightest-navy text-slate"
+                className="font-mono text-xs border-lightest-navy text-slate"
               >
                 {tech}
               </Badge>

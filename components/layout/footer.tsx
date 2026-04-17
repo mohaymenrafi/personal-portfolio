@@ -25,7 +25,7 @@ export default function Footer() {
         </a>
       </div>
 
-      <p className="font-[family-name:var(--font-sf-mono)] text-xs text-slate text-center">
+      <p className="font-mono text-xs text-slate text-center">
         Designed &amp; Built by{" "}
         <a
           href="https://github.com/mohaymenrafi"

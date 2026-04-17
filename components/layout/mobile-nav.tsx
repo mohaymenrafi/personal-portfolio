@@ -35,7 +35,7 @@ export default function MobileNav({ navLinks }: { navLinks: NavLink[] }) {
                 key={label}
                 href={href}
                 onClick={() => setOpen(false)}
-                className="font-[family-name:var(--font-sf-mono)] text-sm text-lightest-slate hover:text-teal transition-colors flex flex-col items-center gap-1"
+                className="font-mono text-sm text-lightest-slate hover:text-teal transition-colors flex flex-col items-center gap-1"
               >
                 <span className="text-teal text-xs">0{i + 1}.</span>
                 {label}
@@ -47,7 +47,7 @@ export default function MobileNav({ navLinks }: { navLinks: NavLink[] }) {
               rel="noopener noreferrer"
               className={cn(
                 buttonVariants({ variant: "outline", size: "sm" }),
-                "mt-4 font-[family-name:var(--font-sf-mono)] text-xs border-teal text-teal bg-transparent hover:bg-teal/10"
+                "mt-4 font-mono text-xs border-teal text-teal bg-transparent hover:bg-teal/10"
               )}
             >
               Resume

@@ -56,7 +56,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${calibre.variable} ${sfMono.variable}`}>
       <body
-        className="font-[family-name:var(--font-calibre)] antialiased min-h-screen"
+        className="font-sans antialiased min-h-screen"
         style={{ fontFamily: "var(--font-calibre), system-ui, sans-serif" }}
       >
         <ThemeProvider>

@@ -74,7 +74,7 @@ export default function About() {
             {skills.map((skill) => (
               <li
                 key={skill}
-                className="font-[family-name:var(--font-sf-mono)] text-sm text-slate flex items-center gap-2 before:content-['▹'] before:text-teal before:text-xs"
+                className="font-mono text-sm text-slate flex items-center gap-2 before:content-['▹'] before:text-teal before:text-xs"
               >
                 {skill}
               </li>

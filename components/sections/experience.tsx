@@ -9,7 +9,7 @@ export default function Experience() {
     <section id="experience" className="py-24 max-w-4xl mx-auto">
       {/* Section heading */}
       <div className="flex items-center gap-4 mb-12">
-        <h2 className="font-[family-name:var(--font-sf-mono)] text-lightest-slate text-2xl md:text-3xl font-semibold whitespace-nowrap">
+        <h2 className="font-mono text-lightest-slate text-2xl md:text-3xl font-semibold whitespace-nowrap">
           <span className="text-teal mr-2 text-xl">02.</span>
           Where I&apos;ve Worked
         </h2>
@@ -23,7 +23,7 @@ export default function Experience() {
             <TabsTrigger
               key={exp.company}
               value={exp.company}
-              className="font-[family-name:var(--font-sf-mono)] text-sm text-slate data-[state=active]:text-teal data-[state=active]:bg-lightest-navy/50 rounded-none border-b-2 md:border-b-0 md:border-l-2 border-transparent data-[state=active]:border-teal px-5 py-3 justify-start whitespace-nowrap hover:text-teal hover:bg-lightest-navy/30 transition-all"
+              className="font-mono text-sm text-slate data-[state=active]:text-teal data-[state=active]:bg-lightest-navy/50 rounded-none border-b-2 md:border-b-0 md:border-l-2 border-transparent data-[state=active]:border-teal px-5 py-3 justify-start whitespace-nowrap hover:text-teal hover:bg-lightest-navy/30 transition-all"
             >
               {exp.company}
             </TabsTrigger>
@@ -39,7 +39,7 @@ export default function Experience() {
                   {exp.title}{" "}
                   <span className="text-teal">@ {exp.company}</span>
                 </h3>
-                <p className="font-[family-name:var(--font-sf-mono)] text-xs text-slate mt-1">
+                <p className="font-mono text-xs text-slate mt-1">
                   {exp.period} · {exp.location}
                 </p>
               </div>

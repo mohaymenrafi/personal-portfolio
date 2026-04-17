@@ -9,7 +9,7 @@ export default function Projects() {
     <section id="projects" className="py-24 max-w-4xl mx-auto">
       {/* Section heading */}
       <div className="flex items-center gap-4 mb-16">
-        <h2 className="font-[family-name:var(--font-sf-mono)] text-lightest-slate text-2xl md:text-3xl font-semibold whitespace-nowrap">
+        <h2 className="font-mono text-lightest-slate text-2xl md:text-3xl font-semibold whitespace-nowrap">
           <span className="text-teal mr-2 text-xl">03.</span>
           Some Things I&apos;ve Built
         </h2>
@@ -49,7 +49,7 @@ export default function Projects() {
                     : "md:col-start-1 md:text-left"
                 } flex flex-col gap-3 ${isLeft ? "md:items-end" : "md:items-start"}`}
               >
-                <p className="font-[family-name:var(--font-sf-mono)] text-xs text-teal">
+                <p className="font-mono text-xs text-teal">
                   Featured Project
                 </p>
 
@@ -69,7 +69,7 @@ export default function Projects() {
                   {project.techs.map((tech) => (
                     <span
                       key={tech}
-                      className="font-[family-name:var(--font-sf-mono)] text-xs text-slate"
+                      className="font-mono text-xs text-slate"
                     >
                       {tech}
                     </span>
