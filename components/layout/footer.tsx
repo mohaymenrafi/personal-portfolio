@@ -10,7 +10,7 @@ export default function Footer() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub"
-          className="text-[var(--color-slate)] hover:text-[var(--color-teal)] transition-colors"
+          className="text-slate hover:text-teal transition-colors"
         >
           <FiGithub />
         </a>
@@ -19,19 +19,19 @@ export default function Footer() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"
-          className="text-[var(--color-slate)] hover:text-[var(--color-teal)] transition-colors"
+          className="text-slate hover:text-teal transition-colors"
         >
           <FiLinkedin />
         </a>
       </div>
 
-      <p className="font-[family-name:var(--font-sf-mono)] text-xs text-[var(--color-slate)] text-center">
+      <p className="font-[family-name:var(--font-sf-mono)] text-xs text-slate text-center">
         Designed &amp; Built by{" "}
         <a
           href="https://github.com/mohaymenrafi"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[var(--color-teal)] hover:underline"
+          className="text-teal hover:underline"
         >
           Abdullah Al Mohaymen Rafi
         </a>

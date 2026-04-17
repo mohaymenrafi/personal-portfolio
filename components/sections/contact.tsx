@@ -63,13 +63,13 @@ export default function Contact() {
   return (
     <section id="contact" className="py-24 max-w-2xl mx-auto text-center">
       {/* Section heading */}
-      <p className="font-[family-name:var(--font-sf-mono)] text-xs text-[var(--color-teal)] mb-3 tracking-wide">
+      <p className="font-[family-name:var(--font-sf-mono)] text-xs text-teal mb-3 tracking-wide">
         04. What&apos;s Next?
       </p>
-      <h2 className="text-4xl md:text-5xl font-semibold text-[var(--color-lightest-slate)] mb-6">
+      <h2 className="text-4xl md:text-5xl font-semibold text-lightest-slate mb-6">
         Get In Touch
       </h2>
-      <p className="text-[var(--color-slate)] text-lg leading-relaxed mb-12">
+      <p className="text-slate text-lg leading-relaxed mb-12">
         I&apos;m currently open to new opportunities. Whether you have a question, a project in mind, or just
         want to say hi — my inbox is always open.
       </p>
@@ -82,14 +82,14 @@ export default function Contact() {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="font-[family-name:var(--font-sf-mono)] text-xs text-[var(--color-slate)]">
+                  <FormLabel className="font-[family-name:var(--font-sf-mono)] text-xs text-slate">
                     Name
                   </FormLabel>
                   <FormControl>
                     <Input
                       placeholder="Your name"
                       {...field}
-                      className="bg-transparent border-[var(--color-lightest-navy)] text-[var(--color-lightest-slate)] placeholder:text-[var(--color-slate)]/50 focus:border-[var(--color-teal)] focus-visible:ring-0"
+                      className="bg-transparent border-lightest-navy text-lightest-slate placeholder:text-slate/50 focus:border-teal focus-visible:ring-0"
                     />
                   </FormControl>
                   <FormMessage className="text-xs" />
@@ -101,7 +101,7 @@ export default function Contact() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="font-[family-name:var(--font-sf-mono)] text-xs text-[var(--color-slate)]">
+                  <FormLabel className="font-[family-name:var(--font-sf-mono)] text-xs text-slate">
                     Email
                   </FormLabel>
                   <FormControl>
@@ -109,7 +109,7 @@ export default function Contact() {
                       placeholder="your@email.com"
                       type="email"
                       {...field}
-                      className="bg-transparent border-[var(--color-lightest-navy)] text-[var(--color-lightest-slate)] placeholder:text-[var(--color-slate)]/50 focus:border-[var(--color-teal)] focus-visible:ring-0"
+                      className="bg-transparent border-lightest-navy text-lightest-slate placeholder:text-slate/50 focus:border-teal focus-visible:ring-0"
                     />
                   </FormControl>
                   <FormMessage className="text-xs" />
@@ -123,14 +123,14 @@ export default function Contact() {
             name="subject"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="font-[family-name:var(--font-sf-mono)] text-xs text-[var(--color-slate)]">
+                <FormLabel className="font-[family-name:var(--font-sf-mono)] text-xs text-slate">
                   Subject
                 </FormLabel>
                 <FormControl>
                   <Input
                     placeholder="What's this about?"
                     {...field}
-                    className="bg-transparent border-[var(--color-lightest-navy)] text-[var(--color-lightest-slate)] placeholder:text-[var(--color-slate)]/50 focus:border-[var(--color-teal)] focus-visible:ring-0"
+                    className="bg-transparent border-lightest-navy text-lightest-slate placeholder:text-slate/50 focus:border-teal focus-visible:ring-0"
                   />
                 </FormControl>
                 <FormMessage className="text-xs" />
@@ -143,7 +143,7 @@ export default function Contact() {
             name="message"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="font-[family-name:var(--font-sf-mono)] text-xs text-[var(--color-slate)]">
+                <FormLabel className="font-[family-name:var(--font-sf-mono)] text-xs text-slate">
                   Message
                 </FormLabel>
                 <FormControl>
@@ -151,7 +151,7 @@ export default function Contact() {
                     placeholder="Your message..."
                     rows={6}
                     {...field}
-                    className="bg-transparent border-[var(--color-lightest-navy)] text-[var(--color-lightest-slate)] placeholder:text-[var(--color-slate)]/50 focus:border-[var(--color-teal)] focus-visible:ring-0 resize-none"
+                    className="bg-transparent border-lightest-navy text-lightest-slate placeholder:text-slate/50 focus:border-teal focus-visible:ring-0 resize-none"
                   />
                 </FormControl>
                 <FormMessage className="text-xs" />
@@ -165,14 +165,14 @@ export default function Contact() {
               disabled={status === "sending"}
               className={cn(
                 buttonVariants({ variant: "outline" }),
-                "font-[family-name:var(--font-sf-mono)] text-sm border-[var(--color-teal)] text-[var(--color-teal)] bg-transparent hover:bg-[var(--color-teal)]/10 px-10 py-6 disabled:opacity-50"
+                "font-[family-name:var(--font-sf-mono)] text-sm border-teal text-teal bg-transparent hover:bg-teal/10 px-10 py-6 disabled:opacity-50"
               )}
             >
               {status === "sending" ? "Sending..." : "Send Message"}
             </button>
 
             {status === "success" && (
-              <p className="font-[family-name:var(--font-sf-mono)] text-xs text-[var(--color-teal)]">
+              <p className="font-[family-name:var(--font-sf-mono)] text-xs text-teal">
                 Message sent! I&apos;ll get back to you soon.
               </p>
             )}

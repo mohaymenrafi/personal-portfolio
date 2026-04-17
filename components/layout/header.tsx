@@ -32,7 +32,7 @@ export default function Header() {
       }`}
     >
       {/* Logo */}
-      <Link href="/" className="text-[var(--color-teal)] font-[family-name:var(--font-sf-mono)] text-lg font-semibold hover:opacity-80 transition-opacity">
+      <Link href="/" className="text-teal font-[family-name:var(--font-sf-mono)] text-lg font-semibold hover:opacity-80 transition-opacity">
         rafi.
       </Link>
 
@@ -42,9 +42,9 @@ export default function Header() {
           <a
             key={label}
             href={href}
-            className="font-[family-name:var(--font-sf-mono)] text-sm text-[var(--color-slate)] hover:text-[var(--color-teal)] transition-colors"
+            className="font-[family-name:var(--font-sf-mono)] text-sm text-slate hover:text-teal transition-colors"
           >
-            <span className="text-[var(--color-teal)] mr-1">0{i + 1}.</span>
+            <span className="text-teal mr-1">0{i + 1}.</span>
             {label}
           </a>
         ))}
@@ -54,7 +54,7 @@ export default function Header() {
           rel="noopener noreferrer"
           className={cn(
             buttonVariants({ variant: "outline", size: "sm" }),
-            "font-[family-name:var(--font-sf-mono)] text-xs border-[var(--color-teal)] text-[var(--color-teal)] bg-transparent hover:bg-[var(--color-teal)]/10"
+            "font-[family-name:var(--font-sf-mono)] text-xs border-teal text-teal bg-transparent hover:bg-teal/10"
           )}
         >
           Resume

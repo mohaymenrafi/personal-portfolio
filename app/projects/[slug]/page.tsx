@@ -29,17 +29,17 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         href="/#projects"
         className={cn(
           buttonVariants({ variant: "ghost" }),
-          "mb-8 text-[var(--color-slate)] hover:text-[var(--color-teal)] hover:bg-transparent -ml-2"
+          "mb-8 text-slate hover:text-teal hover:bg-transparent -ml-2"
         )}
       >
         <FiArrowLeft className="mr-2" />
         Back to projects
       </Link>
 
-      <p className="font-[family-name:var(--font-sf-mono)] text-xs text-[var(--color-teal)] mb-2">
+      <p className="font-[family-name:var(--font-sf-mono)] text-xs text-teal mb-2">
         Featured Project
       </p>
-      <h1 className="text-3xl md:text-5xl font-semibold text-[var(--color-lightest-slate)] mb-4">
+      <h1 className="text-3xl md:text-5xl font-semibold text-lightest-slate mb-4">
         {project.name}
       </h1>
 
@@ -49,7 +49,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[var(--color-slate)] hover:text-[var(--color-teal)] text-xl transition-colors"
+            className="text-slate hover:text-teal text-xl transition-colors"
             aria-label="GitHub"
           >
             <FiGithub />
@@ -60,7 +60,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             href={project.gitBackend}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-[family-name:var(--font-sf-mono)] text-xs text-[var(--color-slate)] hover:text-[var(--color-teal)] transition-colors"
+            className="font-[family-name:var(--font-sf-mono)] text-xs text-slate hover:text-teal transition-colors"
           >
             Backend repo
           </a>
@@ -70,7 +70,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[var(--color-slate)] hover:text-[var(--color-teal)] text-xl transition-colors"
+            className="text-slate hover:text-teal text-xl transition-colors"
             aria-label="Live site"
           >
             <FiExternalLink />
@@ -91,14 +91,14 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
       <div className="grid md:grid-cols-[2fr_1fr] gap-10">
         <div>
-          <h2 className="text-[var(--color-lightest-slate)] text-xl font-semibold mb-4">Overview</h2>
-          <p className="text-[var(--color-slate)] leading-relaxed mb-8">{project.overview}</p>
+          <h2 className="text-lightest-slate text-xl font-semibold mb-4">Overview</h2>
+          <p className="text-slate leading-relaxed mb-8">{project.overview}</p>
 
-          <h2 className="text-[var(--color-lightest-slate)] text-xl font-semibold mb-4">Key Features</h2>
+          <h2 className="text-lightest-slate text-xl font-semibold mb-4">Key Features</h2>
           <ul className="space-y-3">
             {project.features.map((f, i) => (
-              <li key={i} className="text-[var(--color-slate)] flex gap-3 leading-relaxed">
-                <span className="text-[var(--color-teal)] shrink-0 mt-1">▹</span>
+              <li key={i} className="text-slate flex gap-3 leading-relaxed">
+                <span className="text-teal shrink-0 mt-1">▹</span>
                 {f}
               </li>
             ))}
@@ -106,13 +106,13 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </div>
 
         <div>
-          <h2 className="text-[var(--color-lightest-slate)] text-xl font-semibold mb-4">Tech Stack</h2>
+          <h2 className="text-lightest-slate text-xl font-semibold mb-4">Tech Stack</h2>
           <div className="flex flex-wrap gap-2">
             {project.techs.map((tech) => (
               <Badge
                 key={tech}
                 variant="outline"
-                className="font-[family-name:var(--font-sf-mono)] text-xs border-[var(--color-lightest-navy)] text-[var(--color-slate)]"
+                className="font-[family-name:var(--font-sf-mono)] text-xs border-lightest-navy text-slate"
               >
                 {tech}
               </Badge>

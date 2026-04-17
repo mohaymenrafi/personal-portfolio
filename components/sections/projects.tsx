@@ -9,11 +9,11 @@ export default function Projects() {
     <section id="projects" className="py-24 max-w-4xl mx-auto">
       {/* Section heading */}
       <div className="flex items-center gap-4 mb-16">
-        <h2 className="font-[family-name:var(--font-sf-mono)] text-[var(--color-lightest-slate)] text-2xl md:text-3xl font-semibold whitespace-nowrap">
-          <span className="text-[var(--color-teal)] mr-2 text-xl">03.</span>
+        <h2 className="font-[family-name:var(--font-sf-mono)] text-lightest-slate text-2xl md:text-3xl font-semibold whitespace-nowrap">
+          <span className="text-teal mr-2 text-xl">03.</span>
           Some Things I&apos;ve Built
         </h2>
-        <div className="h-px bg-[var(--color-lightest-navy)] flex-1" />
+        <div className="h-px bg-lightest-navy flex-1" />
       </div>
 
       <div className="flex flex-col gap-24">
@@ -36,7 +36,7 @@ export default function Projects() {
                       height={440}
                       className="w-full h-auto object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                     />
-                    <div className="absolute inset-0 bg-[var(--color-navy)]/60 group-hover:bg-transparent transition-all duration-500" />
+                    <div className="absolute inset-0 bg-navy/60 group-hover:bg-transparent transition-all duration-500" />
                   </div>
                 </Link>
               </div>
@@ -49,18 +49,18 @@ export default function Projects() {
                     : "md:col-start-1 md:text-left"
                 } flex flex-col gap-3 ${isLeft ? "md:items-end" : "md:items-start"}`}
               >
-                <p className="font-[family-name:var(--font-sf-mono)] text-xs text-[var(--color-teal)]">
+                <p className="font-[family-name:var(--font-sf-mono)] text-xs text-teal">
                   Featured Project
                 </p>
 
                 <Link href={`/projects/${project.slug}`}>
-                  <h3 className="text-[var(--color-lightest-slate)] text-xl md:text-2xl font-semibold hover:text-[var(--color-teal)] transition-colors">
+                  <h3 className="text-lightest-slate text-xl md:text-2xl font-semibold hover:text-teal transition-colors">
                     {project.name}
                   </h3>
                 </Link>
 
-                <div className="bg-[var(--color-light-navy)] p-6 rounded shadow-xl">
-                  <p className="text-[var(--color-slate)] text-sm md:text-base leading-relaxed">
+                <div className="bg-light-navy p-6 rounded shadow-xl">
+                  <p className="text-slate text-sm md:text-base leading-relaxed">
                     {project.overview}
                   </p>
                 </div>
@@ -69,7 +69,7 @@ export default function Projects() {
                   {project.techs.map((tech) => (
                     <span
                       key={tech}
-                      className="font-[family-name:var(--font-sf-mono)] text-xs text-[var(--color-slate)]"
+                      className="font-[family-name:var(--font-sf-mono)] text-xs text-slate"
                     >
                       {tech}
                     </span>
@@ -83,7 +83,7 @@ export default function Projects() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="GitHub"
-                      className="text-[var(--color-lightest-slate)] hover:text-[var(--color-teal)] text-xl transition-colors"
+                      className="text-lightest-slate hover:text-teal text-xl transition-colors"
                     >
                       <FiGithub />
                     </a>
@@ -94,7 +94,7 @@ export default function Projects() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="Live site"
-                      className="text-[var(--color-lightest-slate)] hover:text-[var(--color-teal)] text-xl transition-colors"
+                      className="text-lightest-slate hover:text-teal text-xl transition-colors"
                     >
                       <FiExternalLink />
                     </a>

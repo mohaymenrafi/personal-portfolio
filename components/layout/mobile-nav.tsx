@@ -20,14 +20,14 @@ export default function MobileNav({ navLinks }: { navLinks: NavLink[] }) {
         <SheetTrigger
           className={cn(
             buttonVariants({ variant: "ghost", size: "icon" }),
-            "text-[var(--color-teal)] hover:bg-[var(--color-teal)]/10"
+            "text-teal hover:bg-teal/10"
           )}
         >
           <Menu className="h-5 w-5" />
         </SheetTrigger>
         <SheetContent
           side="right"
-          className="w-72 bg-[var(--color-light-navy)] border-[var(--color-lightest-navy)] flex flex-col items-center justify-center"
+          className="w-72 bg-light-navy border-lightest-navy flex flex-col items-center justify-center"
         >
           <nav className="flex flex-col items-center gap-8">
             {navLinks.map(({ label, href }, i) => (
@@ -35,9 +35,9 @@ export default function MobileNav({ navLinks }: { navLinks: NavLink[] }) {
                 key={label}
                 href={href}
                 onClick={() => setOpen(false)}
-                className="font-[family-name:var(--font-sf-mono)] text-sm text-[var(--color-lightest-slate)] hover:text-[var(--color-teal)] transition-colors flex flex-col items-center gap-1"
+                className="font-[family-name:var(--font-sf-mono)] text-sm text-lightest-slate hover:text-teal transition-colors flex flex-col items-center gap-1"
               >
-                <span className="text-[var(--color-teal)] text-xs">0{i + 1}.</span>
+                <span className="text-teal text-xs">0{i + 1}.</span>
                 {label}
               </a>
             ))}
@@ -47,7 +47,7 @@ export default function MobileNav({ navLinks }: { navLinks: NavLink[] }) {
               rel="noopener noreferrer"
               className={cn(
                 buttonVariants({ variant: "outline", size: "sm" }),
-                "mt-4 font-[family-name:var(--font-sf-mono)] text-xs border-[var(--color-teal)] text-[var(--color-teal)] bg-transparent hover:bg-[var(--color-teal)]/10"
+                "mt-4 font-[family-name:var(--font-sf-mono)] text-xs border-teal text-teal bg-transparent hover:bg-teal/10"
               )}
             >
               Resume

@@ -20,7 +20,7 @@ export function ThemeToggle({ className }: { className?: string }) {
       aria-label="Toggle theme"
       className={cn(
         buttonVariants({ variant: "ghost", size: "icon" }),
-        "text-[var(--color-slate)] hover:text-[var(--color-teal)] hover:bg-[var(--color-teal)]/10",
+        "text-slate hover:text-teal hover:bg-teal/10",
         className
       )}
     >

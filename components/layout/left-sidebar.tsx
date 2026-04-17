@@ -28,12 +28,12 @@ export default function LeftSidebar() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={label}
-          className="text-[var(--color-slate)] hover:text-[var(--color-teal)] hover:-translate-y-1 transition-all duration-200 text-xl"
+          className="text-slate hover:text-teal hover:-translate-y-1 transition-all duration-200 text-xl"
         >
           <Icon />
         </a>
       ))}
-      <div className="w-px h-24 bg-[var(--color-slate)]" />
+      <div className="w-px h-24 bg-slate" />
     </div>
   );
 }
