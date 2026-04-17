@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "@/components/theme-toggle";
 import MobileNav from "./mobile-nav";
 
 const navLinks = [
@@ -26,7 +27,7 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4 transition-all duration-300 ${
         scrolled
-          ? "bg-[#0a192f]/90 backdrop-blur-md shadow-md"
+          ? "bg-background/90 backdrop-blur-md shadow-md"
           : "bg-transparent"
       }`}
     >
@@ -58,10 +59,14 @@ export default function Header() {
         >
           Resume
         </a>
+        <ThemeToggle />
       </nav>
 
       {/* Mobile nav */}
-      <MobileNav navLinks={navLinks} />
+      <div className="flex items-center gap-1 md:hidden">
+        <ThemeToggle />
+        <MobileNav navLinks={navLinks} />
+      </div>
     </header>
   );
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import LeftSidebar from "@/components/layout/left-sidebar";
@@ -58,13 +59,15 @@ export default function RootLayout({
         className="font-[family-name:var(--font-calibre)] antialiased min-h-screen"
         style={{ fontFamily: "var(--font-calibre), system-ui, sans-serif" }}
       >
-        <TooltipProvider>
-          <Header />
-          <LeftSidebar />
-          <RightSidebar />
-          <main className="px-6 md:px-12 lg:px-24 xl:px-36">{children}</main>
-          <Footer />
-        </TooltipProvider>
+        <ThemeProvider>
+          <TooltipProvider>
+            <Header />
+            <LeftSidebar />
+            <RightSidebar />
+            <main className="px-6 md:px-12 lg:px-24 xl:px-36">{children}</main>
+            <Footer />
+          </TooltipProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
