@@ -1,59 +1,36 @@
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-# Personal Portfolio
+## Getting Started
 
-This is my perosnal portfolio project. First of all thanks [Brittany](https://brittanychiang.com/) for the awesome open source design.
-
-If you like this website and want to use as your portfolio, you can use and don't have to ask me. Just do a proper attribution back to my [website](https://mhabdullah.vercel.app/).
-
-
-## Tech Stack
-
-**Client:** Typescript, React js, Next js, TailwindCSS, Scss
-
-
-
-
-## Run Locally
-
-Clone the project
+First, run the development server:
 
 ```bash
-  git clone git@github.com:mohaymenrafi/personal-portfolio.git
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Go to the project directory
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-```bash
-  cd personal-portfolio
-```
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-Install dependencies
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-```bash
-  yarn install
-```
+## Learn More
 
-Start the server
+To learn more about Next.js, take a look at the following resources:
 
-```bash
-  yarn dev
-```
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## Color Reference
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-| Color             | Hex                                                                |
-| ----------------- | ------------------------------------------------------------------ |
-| navy |  #0a192f |
-| light-navy | #112240 |
-| lightest-navy | #233554 |
-| slate | #8892b0 |
-| light-slate | #a8b2d1 |
-| lightest-slate | #ccd6f6 |
-| white | #e6f1ff |
-| green | #64ffda |
+## Deploy on Vercel
 
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-## Feedback
-
-If you have any feedback, please reach out to me at mohaymen.rafi@gmail.com
-
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
