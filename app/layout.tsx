@@ -7,6 +7,7 @@ import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import LeftSidebar from "@/components/layout/left-sidebar";
 import RightSidebar from "@/components/layout/right-sidebar";
+import { Toaster } from "@/components/ui/sonner";
 
 const calibre = localFont({
   src: [
@@ -66,6 +67,7 @@ export default function RootLayout({
             <RightSidebar />
             <main className="px-6 md:px-12 lg:px-24 xl:px-36">{children}</main>
             <Footer />
+            <Toaster richColors closeButton />
           </TooltipProvider>
         </ThemeProvider>
       </body>
