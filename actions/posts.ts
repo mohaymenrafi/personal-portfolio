@@ -2,7 +2,7 @@
 
 import { revalidatePath } from 'next/cache';
 import { cookies } from 'next/headers';
-import { deletePost } from '@/lib/api';
+import { deletePost } from '@/lib/api-mutations';
 
 export async function deletePostAction(id: number) {
   const cookieStore = await cookies();

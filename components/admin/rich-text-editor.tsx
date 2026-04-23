@@ -45,6 +45,7 @@ export default function RichTextEditor({ value, onChange, className }: RichTextE
       Image,
       CodeBlockLowlight.configure({ lowlight }),
     ],
+    immediatelyRender: false,
     content: value,
     onUpdate: ({ editor }) => onChange(editor.getHTML()),
     editorProps: {

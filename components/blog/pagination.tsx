@@ -6,9 +6,16 @@ interface PaginationProps {
   page: number;
   totalPages: number;
   basePath?: string;
+  search?: string;
 }
 
-export default function Pagination({ page, totalPages, basePath = '/blog' }: PaginationProps) {
+function buildHref(basePath: string, page: number, search?: string) {
+  const params = new URLSearchParams({ page: String(page) });
+  if (search) params.set('search', search);
+  return `${basePath}?${params.toString()}`;
+}
+
+export default function Pagination({ page, totalPages, basePath = '/blog', search }: PaginationProps) {
   if (totalPages <= 1) return null;
 
   const btnBase = cn(buttonVariants({ variant: 'outline', size: 'sm' }));
@@ -17,7 +24,7 @@ export default function Pagination({ page, totalPages, basePath = '/blog' }: Pag
   return (
     <div className="flex items-center justify-center gap-2 mt-12">
       {page > 1 ? (
-        <Link href={`${basePath}?page=${page - 1}`} className={btnBase}>
+        <Link href={buildHref(basePath, page - 1, search)} className={btnBase}>
           ← Prev
         </Link>
       ) : (
@@ -29,7 +36,7 @@ export default function Pagination({ page, totalPages, basePath = '/blog' }: Pag
       </span>
 
       {page < totalPages ? (
-        <Link href={`${basePath}?page=${page + 1}`} className={btnBase}>
+        <Link href={buildHref(basePath, page + 1, search)} className={btnBase}>
           Next →
         </Link>
       ) : (

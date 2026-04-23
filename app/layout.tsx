@@ -3,10 +3,6 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/theme-provider";
-import Header from "@/components/layout/header";
-import Footer from "@/components/layout/footer";
-import LeftSidebar from "@/components/layout/left-sidebar";
-import RightSidebar from "@/components/layout/right-sidebar";
 import { Toaster } from "@/components/ui/sonner";
 
 const calibre = localFont({
@@ -62,11 +58,7 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <TooltipProvider>
-            <Header />
-            <LeftSidebar />
-            <RightSidebar />
-            <main className="px-6 md:px-12 lg:px-24 xl:px-36">{children}</main>
-            <Footer />
+            {children}
             <Toaster richColors closeButton />
           </TooltipProvider>
         </ThemeProvider>

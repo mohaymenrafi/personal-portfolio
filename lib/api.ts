@@ -1,16 +1,6 @@
 import { cookies } from 'next/headers';
 import type { PaginatedPosts, Post, Tag } from './types';
 
-export interface PostPayload {
-  title?: string;
-  slug?: string;
-  excerpt?: string;
-  coverImage?: string;
-  content?: string;
-  published?: boolean;
-  tags?: string[];
-}
-
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:4000';
 
 async function apiFetch<T>(
@@ -49,10 +39,10 @@ async function apiFetch<T>(
 
 // ─── Posts ────────────────────────────────────────────────────────────────────
 
-export function getPosts(page = 1, limit = 6): Promise<PaginatedPosts> {
-  return apiFetch(`/api/posts?page=${page}&limit=${limit}`, {
-    next: { revalidate: 60 },
-  });
+export function getPosts(page = 1, limit = 6, search?: string): Promise<PaginatedPosts> {
+  const params = new URLSearchParams({ page: String(page), limit: String(limit) });
+  if (search) params.set('search', search);
+  return apiFetch(`/api/posts?${params}`, { next: { revalidate: 60 } });
 }
 
 export function getPost(slug: string): Promise<Post> {
@@ -61,21 +51,6 @@ export function getPost(slug: string): Promise<Post> {
 
 export function getAllPostsAdmin(): Promise<Post[]> {
   return apiFetch('/api/posts/admin/all', { cache: 'no-store' });
-}
-
-export function createPost(data: PostPayload): Promise<Post> {
-  return apiFetch('/api/posts', { method: 'POST', body: JSON.stringify(data) });
-}
-
-export function updatePost(id: number, data: PostPayload): Promise<Post> {
-  return apiFetch(`/api/posts/${id}`, {
-    method: 'PATCH',
-    body: JSON.stringify(data),
-  });
-}
-
-export function deletePost(id: number): Promise<void> {
-  return apiFetch(`/api/posts/${id}`, { method: 'DELETE' });
 }
 
 // ─── Tags ─────────────────────────────────────────────────────────────────────
