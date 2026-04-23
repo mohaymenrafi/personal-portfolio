@@ -1,6 +1,16 @@
 import { cookies } from 'next/headers';
 import type { PaginatedPosts, Post, Tag } from './types';
 
+export interface PostPayload {
+  title?: string;
+  slug?: string;
+  excerpt?: string;
+  coverImage?: string;
+  content?: string;
+  published?: boolean;
+  tags?: string[];
+}
+
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:4000';
 
 async function apiFetch<T>(
@@ -53,14 +63,11 @@ export function getAllPostsAdmin(): Promise<Post[]> {
   return apiFetch('/api/posts/admin/all', { cache: 'no-store' });
 }
 
-export function createPost(data: Partial<Post> & { tags?: string[] }): Promise<Post> {
+export function createPost(data: PostPayload): Promise<Post> {
   return apiFetch('/api/posts', { method: 'POST', body: JSON.stringify(data) });
 }
 
-export function updatePost(
-  id: number,
-  data: Partial<Post> & { tags?: string[] },
-): Promise<Post> {
+export function updatePost(id: number, data: PostPayload): Promise<Post> {
   return apiFetch(`/api/posts/${id}`, {
     method: 'PATCH',
     body: JSON.stringify(data),
