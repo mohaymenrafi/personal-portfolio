@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio — Frontend
+
+Personal portfolio and blog for Abdullah Al Mohaymen Rafi. Built with Next.js, Tailwind CSS, and shadcn/ui.
+
+## Tech Stack
+
+- **Framework:** Next.js (App Router)
+- **Styling:** Tailwind CSS v4 + shadcn/ui
+- **Auth:** better-auth client (session-based)
+- **Rich text:** TipTap
+- **Media:** Cloudinary
+- **Fonts:** Geist + SF Mono
+
+## Pages
+
+| Route | Description |
+|---|---|
+| `/` | Portfolio homepage (Hero, About, Experience, Projects, Contact) |
+| `/blog` | Blog listing with search and pagination |
+| `/blog/[slug]` | Blog post with prev/next navigation |
+| `/admin/posts` | Admin — post management (protected) |
+| `/admin/posts/new` | Admin — create post |
+| `/admin/posts/[id]/edit` | Admin — edit post |
+| `/login` | Admin login |
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 20+
+- pnpm
+- Backend running (see [portfolio-backend](https://github.com/mohaymenrafi/portfolio-backend))
+
+### Setup
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Create `.env.local`:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```env
+NEXT_PUBLIC_API_URL=http://localhost:4000
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=your_cloud_name
+NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET=your_upload_preset
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+```
 
-## Learn More
+Start the dev server:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+App available at `http://localhost:3000`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Admin Access
 
-## Deploy on Vercel
+Navigate to `/login` and sign in with your credentials. Admin routes are protected by session-based auth — unauthenticated requests are redirected to `/login`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Server Wake Handling
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The backend is hosted on Render's free tier which spins down after inactivity. The frontend handles this gracefully:
+
+- **Homepage** fires a silent background ping to `/api/health` on load to pre-warm the server
+- **Blog pages** fetch client-side and auto-retry every 5 seconds, showing an animated "Server is waking up…" message until the server responds
+
+## Deployment
+
+Deployed on [Vercel](https://vercel.com).
+
+Set the following environment variables in Vercel project settings:
+
+| Variable | Value |
+|---|---|
+| `NEXT_PUBLIC_API_URL` | Backend URL (e.g. `https://your-app.onrender.com`) |
+| `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME` | Cloudinary cloud name |
+| `NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET` | Cloudinary unsigned upload preset |
+| `CLOUDINARY_API_KEY` | Cloudinary API key |
+| `CLOUDINARY_API_SECRET` | Cloudinary API secret |
