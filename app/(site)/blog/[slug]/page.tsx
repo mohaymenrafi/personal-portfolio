@@ -1,8 +1,6 @@
-import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import Image from 'next/image';
-import { getPost } from '@/lib/api';
-import TagBadge from '@/components/blog/tag-badge';
+import Link from 'next/link';
+import PostContent from '@/components/blog/post-content';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -11,7 +9,12 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   try {
-    const post = await getPost(slug);
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/posts/${slug}`,
+      { next: { revalidate: 60 } },
+    );
+    if (!res.ok) return { title: 'Blog — Rafi' };
+    const post = await res.json();
     return {
       title: `${post.title} — Rafi`,
       description: post.excerpt ?? undefined,
@@ -22,65 +25,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     };
   } catch {
-    return { title: 'Post not found' };
+    return { title: 'Blog — Rafi' };
   }
-}
-
-function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
 }
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
 
-  let post;
-  try {
-    post = await getPost(slug);
-  } catch {
-    notFound();
-  }
-
   return (
-    <article className="min-h-screen py-24 max-w-3xl mx-auto">
-      {/* Tags */}
-      <div className="flex flex-wrap gap-2 mb-4">
-        {post.tags.map((tag) => (
-          <TagBadge key={tag.id} tag={tag} />
-        ))}
-      </div>
+    <article className="py-24 max-w-3xl mx-auto">
+      <Link
+        href="/blog"
+        className="inline-flex items-center gap-1 font-mono text-sm text-muted-foreground hover:text-primary transition-colors mb-10"
+      >
+        ← Back to blog
+      </Link>
 
-      {/* Title */}
-      <h1 className="text-3xl md:text-4xl font-semibold text-foreground leading-tight mb-3">
-        {post.title}
-      </h1>
-
-      {/* Date */}
-      <p className="text-sm text-muted-foreground font-mono mb-8">
-        {formatDate(post.createdAt)}
-      </p>
-
-      {/* Cover image */}
-      {post.coverImage && (
-        <div className="relative aspect-video w-full overflow-hidden rounded-lg mb-10">
-          <Image
-            src={post.coverImage}
-            alt={post.title}
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-      )}
-
-      {/* Content — TipTap outputs HTML */}
-      <div
-        className="prose prose-slate dark:prose-invert max-w-none"
-        dangerouslySetInnerHTML={{ __html: post.content }}
-      />
+      <PostContent slug={slug} />
     </article>
   );
 }
