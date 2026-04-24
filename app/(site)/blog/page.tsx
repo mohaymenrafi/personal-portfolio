@@ -4,8 +4,19 @@ import SearchInput from '@/components/blog/search-input';
 import PostsList from '@/components/blog/posts-list';
 
 export const metadata: Metadata = {
-  title: 'Blog — Abdullah Al Mohaymen Rafi',
+  title: 'Blog',
   description: 'Thoughts on frontend engineering, React, TypeScript, and building products.',
+  openGraph: {
+    title: 'Blog — Abdullah Al Mohaymen Rafi',
+    description: 'Thoughts on frontend engineering, React, TypeScript, and building products.',
+    url: 'https://mhabdullah.vercel.app/blog',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Blog — Abdullah Al Mohaymen Rafi',
+    description: 'Thoughts on frontend engineering, React, TypeScript, and building products.',
+  },
 };
 
 interface Props {

@@ -1,22 +1,15 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Geist } from "next/font/google";
 import "./globals.css";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 
-const calibre = localFont({
-  src: [
-    { path: "../public/fonts/Calibre/Calibre-Light.woff2", weight: "300", style: "normal" },
-    { path: "../public/fonts/Calibre/Calibre-LightItalic.woff2", weight: "300", style: "italic" },
-    { path: "../public/fonts/Calibre/Calibre-Regular.woff2", weight: "400", style: "normal" },
-    { path: "../public/fonts/Calibre/Calibre-RegularItalic.woff2", weight: "400", style: "italic" },
-    { path: "../public/fonts/Calibre/Calibre-Medium.woff2", weight: "500", style: "normal" },
-    { path: "../public/fonts/Calibre/Calibre-MediumItalic.woff2", weight: "500", style: "italic" },
-    { path: "../public/fonts/Calibre/Calibre-Semibold.woff2", weight: "600", style: "normal" },
-    { path: "../public/fonts/Calibre/Calibre-SemiboldItalic.woff2", weight: "600", style: "italic" },
-  ],
-  variable: "--font-calibre",
+const geist = Geist({
+  subsets: ["latin"],
+  variable: "--font-geist",
+  display: "swap",
 });
 
 const sfMono = localFont({
@@ -32,7 +25,11 @@ const sfMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Abdullah Al Mohaymen Rafi — Frontend Engineer",
+  metadataBase: new URL("https://mhabdullah.vercel.app"),
+  title: {
+    default: "Abdullah Al Mohaymen Rafi — Frontend Engineer",
+    template: "%s — Rafi",
+  },
   description:
     "Lead Frontend Engineer specializing in large-scale React & TypeScript applications, B2B SaaS, and AI-powered platforms.",
   keywords: ["Frontend Engineer", "React", "Next.js", "TypeScript", "Bangladesh"],
@@ -40,8 +37,18 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Abdullah Al Mohaymen Rafi — Frontend Engineer",
     description:
-      "Lead Frontend Engineer specializing in large-scale React & TypeScript applications.",
+      "Lead Frontend Engineer specializing in large-scale React & TypeScript applications, B2B SaaS, and AI-powered platforms.",
+    url: "https://mhabdullah.vercel.app",
+    siteName: "Abdullah Al Mohaymen Rafi",
     type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Abdullah Al Mohaymen Rafi — Frontend Engineer",
+    description:
+      "Lead Frontend Engineer specializing in large-scale React & TypeScript applications, B2B SaaS, and AI-powered platforms.",
+    creator: "@mohaymenrafi",
   },
 };
 
@@ -51,10 +58,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${calibre.variable} ${sfMono.variable}`}>
+    <html lang="en" className={`${geist.variable} ${sfMono.variable}`}>
       <body
         className="font-sans antialiased min-h-screen"
-        style={{ fontFamily: "var(--font-calibre), system-ui, sans-serif" }}
+        style={{ fontFamily: "var(--font-geist), system-ui, sans-serif" }}
       >
         <ThemeProvider>
           <TooltipProvider>

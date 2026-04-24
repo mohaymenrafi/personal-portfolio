@@ -13,19 +13,31 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       `${process.env.NEXT_PUBLIC_API_URL}/api/posts/${slug}`,
       { next: { revalidate: 60 } },
     );
-    if (!res.ok) return { title: 'Blog — Rafi' };
+    if (!res.ok) return { title: 'Blog' };
     const post = await res.json();
+    const url = `https://mhabdullah.vercel.app/blog/${slug}`;
+    const images = post.coverImage
+      ? [{ url: post.coverImage, width: 1200, height: 630, alt: post.title }]
+      : [];
     return {
-      title: `${post.title} — Rafi`,
+      title: post.title,
       description: post.excerpt ?? undefined,
       openGraph: {
+        title: post.title,
+        description: post.excerpt ?? undefined,
+        url,
+        type: 'article',
+        images,
+      },
+      twitter: {
+        card: 'summary_large_image',
         title: post.title,
         description: post.excerpt ?? undefined,
         images: post.coverImage ? [post.coverImage] : [],
       },
     };
   } catch {
-    return { title: 'Blog — Rafi' };
+    return { title: 'Blog' };
   }
 }
 
