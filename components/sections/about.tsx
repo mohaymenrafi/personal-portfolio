@@ -1,5 +1,12 @@
+"use client";
+
+import { useRef } from "react";
 import Image from "next/image";
-import { Badge } from "@/components/ui/badge";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const skills = [
   "TypeScript",
@@ -25,10 +32,68 @@ const skills = [
 ];
 
 export default function About() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useGSAP(() => {
+    // Heading line
+    gsap.from(".about-heading", {
+      opacity: 0,
+      x: -20,
+      duration: 0.6,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".about-heading",
+        start: "top 88%",
+        once: true,
+      },
+    });
+
+    // Text paragraphs stagger
+    gsap.from(".about-text", {
+      opacity: 0,
+      y: 20,
+      duration: 0.6,
+      stagger: 0.1,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".about-text",
+        start: "top 88%",
+        once: true,
+      },
+    });
+
+    // Skill badges stagger
+    gsap.from(".about-skill", {
+      opacity: 0,
+      y: 10,
+      duration: 0.4,
+      stagger: 0.04,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".about-skill",
+        start: "top 90%",
+        once: true,
+      },
+    });
+
+    // Profile image
+    gsap.from(".about-image", {
+      opacity: 0,
+      x: 30,
+      duration: 0.7,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".about-image",
+        start: "top 88%",
+        once: true,
+      },
+    });
+  }, { scope: sectionRef });
+
   return (
-    <section id="about" className="py-24 max-w-4xl mx-auto">
+    <section ref={sectionRef} id="about" className="py-24 max-w-4xl mx-auto">
       {/* Section heading */}
-      <div className="flex items-center gap-4 mb-12">
+      <div className="about-heading flex items-center gap-4 mb-12">
         <h2 className="font-(family-name:--font-sf-mono) text-lightest-slate text-2xl md:text-3xl font-semibold whitespace-nowrap">
           <span className="text-teal mr-2 text-xl">01.</span>
           About Me
@@ -39,7 +104,7 @@ export default function About() {
       <div className="grid md:grid-cols-[3fr_2fr] gap-12 items-start">
         {/* Text */}
         <div className="space-y-4 text-slate text-lg leading-relaxed">
-          <p>
+          <p className="about-text">
             I&apos;m a Software Engineer based in Rajshahi, Bangladesh with 5+
             years of experience building production-grade web applications. I
             hold a{" "}
@@ -48,7 +113,7 @@ export default function About() {
             </span>{" "}
             from 4 years of freelance delivery.
           </p>
-          <p>
+          <p className="about-text">
             My focus is on{" "}
             <span className="text-lightest-slate">
               large-scale frontend architecture
@@ -57,7 +122,7 @@ export default function About() {
             healthtech, and AI-powered platforms. I enjoy turning complex
             problems into elegant, performant interfaces.
           </p>
-          <p>
+          <p className="about-text">
             I&apos;ve shipped complex features across the stack — from auth
             systems and payment integrations to real-time workflows and AI
             tooling — with a strong emphasis on{" "}
@@ -66,7 +131,7 @@ export default function About() {
             </span>
             .
           </p>
-          <p>
+          <p className="about-text">
             Here are some technologies I&apos;ve been working with recently:
           </p>
 
@@ -74,7 +139,7 @@ export default function About() {
             {skills.map((skill) => (
               <li
                 key={skill}
-                className="font-mono text-sm text-slate flex items-center gap-2 before:content-['▹'] before:text-teal before:text-xs"
+                className="about-skill font-mono text-sm text-slate flex items-center gap-2 before:content-['▹'] before:text-teal before:text-xs"
               >
                 {skill}
               </li>
@@ -83,7 +148,7 @@ export default function About() {
         </div>
 
         {/* Profile image */}
-        <div className="relative group mx-auto w-64 md:w-full max-w-[280px]">
+        <div className="about-image relative group mx-auto w-64 md:w-full max-w-[280px]">
           <div className="relative z-10 rounded overflow-hidden transition-all duration-300">
             <Image
               src="/images/rafi_portfolio.jpg"

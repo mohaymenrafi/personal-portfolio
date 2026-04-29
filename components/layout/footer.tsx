@@ -15,7 +15,7 @@ export default function Footer() {
           <FiGithub />
         </a>
         <a
-          href="https://linkedin.com/in/mohaymenrafi"
+          href="https://www.linkedin.com/in/mohaymenabdullah/"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"
