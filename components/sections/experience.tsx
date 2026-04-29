@@ -1,16 +1,61 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { experiences } from "@/data/experience";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function Experience() {
   const [active, setActive] = useState(experiences[0].company);
   const current = experiences.find((e) => e.company === active)!;
+  const sectionRef = useRef<HTMLElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  // Scroll-triggered entrance (runs once)
+  useGSAP(() => {
+    gsap.from(".exp-heading", {
+      opacity: 0,
+      x: -20,
+      duration: 0.6,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".exp-heading",
+        start: "top 88%",
+        once: true,
+      },
+    });
+
+    gsap.from(".exp-body", {
+      opacity: 0,
+      y: 24,
+      duration: 0.65,
+      ease: "power2.out",
+      delay: 0.1,
+      scrollTrigger: {
+        trigger: ".exp-body",
+        start: "top 88%",
+        once: true,
+      },
+    });
+  }, { scope: sectionRef });
+
+  // Tab content transition (runs on every active change)
+  useGSAP(() => {
+    gsap.from(contentRef.current, {
+      opacity: 0,
+      y: 10,
+      duration: 0.25,
+      ease: "power2.out",
+    });
+  }, { scope: contentRef, dependencies: [active], revertOnUpdate: true });
 
   return (
-    <section id="experience" className="py-24 max-w-4xl mx-auto">
+    <section ref={sectionRef} id="experience" className="py-24 max-w-4xl mx-auto">
       {/* Section heading */}
-      <div className="flex items-center gap-4 mb-12">
+      <div className="exp-heading flex items-center gap-4 mb-12">
         <h2 className="font-mono text-lightest-slate text-2xl md:text-3xl font-semibold whitespace-nowrap">
           <span className="text-teal mr-2 text-xl">02.</span>
           Where I&apos;ve Worked
@@ -18,7 +63,7 @@ export default function Experience() {
         <div className="h-px bg-lightest-navy flex-1" />
       </div>
 
-      <div className="flex flex-col md:flex-row gap-6 md:gap-8">
+      <div className="exp-body flex flex-col md:flex-row gap-6 md:gap-8">
 
         {/* Mobile: select dropdown */}
         <div className="md:hidden">
@@ -53,7 +98,7 @@ export default function Experience() {
         </div>
 
         {/* Content */}
-        <div className="flex-1 space-y-4">
+        <div ref={contentRef} className="flex-1 space-y-4">
           <div>
             <h3 className="text-lightest-slate text-xl font-semibold">
               {current.title}{" "}

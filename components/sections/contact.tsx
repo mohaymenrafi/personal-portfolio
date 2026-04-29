@@ -1,7 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import emailjs from "@emailjs/browser";
@@ -31,6 +36,22 @@ type Status = "idle" | "sending" | "success" | "error";
 
 export default function Contact() {
   const [status, setStatus] = useState<Status>("idle");
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useGSAP(() => {
+    gsap.from(".contact-content", {
+      opacity: 0,
+      y: 24,
+      duration: 0.7,
+      stagger: 0.1,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".contact-content",
+        start: "top 88%",
+        once: true,
+      },
+    });
+  }, { scope: sectionRef });
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -61,21 +82,21 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 max-w-2xl mx-auto text-center">
+    <section ref={sectionRef} id="contact" className="py-24 max-w-2xl mx-auto text-center">
       {/* Section heading */}
-      <p className="font-mono text-xs text-teal mb-3 tracking-wide">
+      <p className="contact-content font-mono text-xs text-teal mb-3 tracking-wide">
         04. What&apos;s Next?
       </p>
-      <h2 className="text-4xl md:text-5xl font-semibold text-lightest-slate mb-6">
+      <h2 className="contact-content text-4xl md:text-5xl font-semibold text-lightest-slate mb-6">
         Get In Touch
       </h2>
-      <p className="text-slate text-lg leading-relaxed mb-12">
+      <p className="contact-content text-slate text-lg leading-relaxed mb-12">
         I&apos;m currently open to new opportunities. Whether you have a question, a project in mind, or just
         want to say hi — my inbox is always open.
       </p>
 
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5 text-left">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="contact-content space-y-5 text-left">
           <div className="grid md:grid-cols-2 gap-5">
             <FormField
               control={form.control}

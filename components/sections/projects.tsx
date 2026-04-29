@@ -1,13 +1,54 @@
+"use client";
+
+import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FiGithub, FiExternalLink } from "react-icons/fi";
 import { featuredProjects } from "@/data/projects";
 
+gsap.registerPlugin(useGSAP, ScrollTrigger);
+
 export default function Projects() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useGSAP(() => {
+    gsap.from(".projects-heading", {
+      opacity: 0,
+      x: -20,
+      duration: 0.6,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".projects-heading",
+        start: "top 88%",
+        once: true,
+      },
+    });
+
+    // Set cards invisible upfront so there's no flash before the batch fires
+    gsap.set(".project-card", { opacity: 0, y: 32 });
+
+    ScrollTrigger.batch(".project-card", {
+      onEnter: (batch) =>
+        gsap.to(batch, {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          stagger: 0.12,
+          ease: "power2.out",
+          overwrite: true,
+        }),
+      start: "top 88%",
+      once: true,
+    });
+  }, { scope: sectionRef });
+
   return (
-    <section id="projects" className="py-24 max-w-4xl mx-auto">
+    <section ref={sectionRef} id="projects" className="py-24 max-w-4xl mx-auto">
       {/* Section heading */}
-      <div className="flex items-center gap-4 mb-16">
+      <div className="projects-heading flex items-center gap-4 mb-16">
         <h2 className="font-mono text-lightest-slate text-2xl md:text-3xl font-semibold whitespace-nowrap">
           <span className="text-teal mr-2 text-xl">03.</span>
           Some Things I&apos;ve Built
@@ -19,7 +60,7 @@ export default function Projects() {
         {featuredProjects.map((project) => {
           const isLeft = project.alignLeft;
           return (
-            <div key={project.slug}>
+            <div key={project.slug} className="project-card">
 
               {/* ── Mobile layout: stacked ── */}
               <div className="md:hidden flex flex-col gap-4">

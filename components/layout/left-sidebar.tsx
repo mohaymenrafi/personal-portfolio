@@ -8,7 +8,7 @@ const socials = [
   },
   {
     icon: FiLinkedin,
-    href: "https://linkedin.com/in/mohaymenrafi",
+    href: "https://www.linkedin.com/in/mohaymenabdullah/",
     label: "LinkedIn",
   },
   {
