@@ -8,11 +8,11 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import MobileNav from "./mobile-nav";
 
 const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
+  { label: "About", href: "/#about" },
+  { label: "Experience", href: "/#experience" },
+  { label: "Projects", href: "/#projects" },
   { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Header() {
@@ -42,20 +42,16 @@ export default function Header() {
 
       {/* Desktop nav */}
       <nav className="hidden md:flex items-center gap-8">
-        {navLinks.map(({ label, href }, i) => {
-          const isExternal = href.startsWith('#');
-          const Tag = isExternal ? 'a' : Link;
-          return (
-            <Tag
-              key={label}
-              href={href}
-              className="font-mono text-sm text-slate hover:text-teal transition-colors"
-            >
-              <span className="text-teal mr-1">0{i + 1}.</span>
-              {label}
-            </Tag>
-          );
-        })}
+        {navLinks.map(({ label, href }, i) => (
+          <Link
+            key={label}
+            href={href}
+            className="font-mono text-sm text-slate hover:text-teal transition-colors"
+          >
+            <span className="text-teal mr-1">0{i + 1}.</span>
+            {label}
+          </Link>
+        ))}
         <a
           href="https://tinyurl.com/46e8rzvb"
           target="_blank"

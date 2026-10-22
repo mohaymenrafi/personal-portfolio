@@ -3,7 +3,6 @@
 import { useEffect, useState, useCallback } from 'react';
 import PostCard from './post-card';
 import Pagination from './pagination';
-import ServerWakeBoundary from './server-wake-boundary';
 import type { PaginatedPosts } from '@/lib/types';
 
 const RETRY_INTERVAL = 5000;

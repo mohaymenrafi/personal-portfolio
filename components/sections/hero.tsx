@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { buttonVariants } from "@/components/ui/button";
@@ -57,24 +58,24 @@ export default function Hero() {
       </p>
 
       <div className="hero-item flex flex-wrap gap-4">
-        <a
-          href="#projects"
+        <Link
+          href="/#projects"
           className={cn(
             buttonVariants({ variant: "outline" }),
             "font-mono text-sm border-teal text-teal bg-transparent hover:bg-teal/10 px-7 py-6"
           )}
         >
           Check out my work <FiArrowRight className="ml-2 inline" />
-        </a>
-        <a
-          href="#contact"
+        </Link>
+        <Link
+          href="/#contact"
           className={cn(
             buttonVariants({ variant: "ghost" }),
             "font-mono text-sm text-slate hover:text-teal hover:bg-transparent px-7 py-6"
           )}
         >
           Get in touch
-        </a>
+        </Link>
       </div>
     </section>
   );
